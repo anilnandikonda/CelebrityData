@@ -1,0 +1,52 @@
+<style>
+  .right {
+    position: absolute;
+    right: 0px;
+  }
+</style>
+<h1>Celebrity Data</h1>
+
+<div class="right">
+
+  <label>Year: </label>
+  <select (change)="filterCelebrities($event.target.value)">
+    <option value="0">--All--</option>
+    <option *ngFor="let year of celebritiesyears" value={{year}}>
+      {{year}}
+    </option>
+  </select>
+</div>
+
+<p *ngIf="!celebritiesperyears"><em>Loading...</em></p>
+
+<table class='table' *ngIf="celebritiesperyears">
+  <thead>
+    <tr>
+      <th>Celebrity Names</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let celebrity of celebritiesperyears">
+      <td>{{ celebrity.birthName }}</td>
+      <td>{{ celebrity.year }}</td>
+    </tr>
+  </tbody>
+</table>
+<!--<h2>My Heroes</h2>
+<ul class="heroes">
+
+  <li *ngFor="let hero of heroes">
+
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+<h2>My Celebrities</h2>
+<ul class="celebritiesperyear">
+
+  <li *ngFor="let celebrity of celebritiesperyear">
+
+    <span class="badge">{{celebrity.year}}</span> {{celebrity.year}}
+  </li>
+</ul>-->
